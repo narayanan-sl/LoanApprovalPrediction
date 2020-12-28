@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval</title>
+    <style>
+    body {
+      background-image: url('Loan.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed; 
+      background-size: 100% 100%;
+    }
+</style>
+</head>
+
+<body>
+
+    <div style=" background-color: coral">
+        
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2>Loan Predictive analysis</h2>
+            
+           <br><label><b>Loan_ID</label><input id="second" name="Loan_ID" required="required" type="text">
+            <br><label>Gender</label><!--<input id="third" name="Gender" required="required" type="text">-->
+         	<input type="radio" id="radio-gender-1" name="Gender" value="Male"/>
+    		<label for="radio-Gender-1">Male</label>
+    		<input type="radio" id="radio-gender-2" name="Gender" value="Female" checked/>
+    		<label for="radio-Gender-2">Female</label>
+    		
+           <br>
+    		<label for="Dependents">Choose the Dependents:</label>
+
+            <select name="Dependents" id="Dependents">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3+">3+</option>
+            </select>
+    		
+    		<br><label>Married</label><!-- <br><input id="second" name="Married" required="required" type="text" > -->
+         	<input type="radio" id="radio-married-1" name="Married" value="1"/>
+    		<label for="radio-Married-1">Yes</label>
+    		<input type="radio" id="radio-married-2" name="Married" value="0" checked/>
+    		<label for="radio-Married-2">No</label>
+    	
+    		
+            <!-- <br><label>Education</label><input id="third" name="Education" required="required" type="text"> -->
+            	<br><label>Education</label><!-- <br><input id="second" name="Married" required="required" type="text" > -->
+         	<input type="radio" id="radio-Education-1" name="Education" value="1"/>
+    		<label for="radio-Education-1">Graduate</label>
+    		<input type="radio" id="radio-Education-2" name="Education" value="0" checked/>
+    		<label for="radio-Education-2">Not Graduate</label>
+    		
+            <!--<br><label>Self_Employed</label><input id="second" name="Self_Employed" required="required" type="text"> -->
+            <br><label>Self_Employed</label><!-- <br><input id="second" name="Married" required="required" type="text" > -->
+         	<input type="radio" id="radio-Self_Employed-1" name="Self_Employed" value="1"/>
+    		<label for="radio-Self_Employed-1">Yes</label>
+    		<input type="radio" id="radio-Self_Employed-2" name="Self_Employed" value="0" checked/>
+    		<label for="radio-Self_Employed-2">No</label>
+    	
+            
+            <br><label>ApplicantIncome</label><input id="third" name="ApplicantIncome" required="required" type="number">
+            <br><label>CoapplicantIncome</label><input id="second" name="CoapplicantIncome" required="required" type="number">
+            <br><label>LoanAmount</label><input id="third" name="LoanAmount" required="required" type="number">
+            
+         
+    		
+            <br><label>Loan_Amount_Term</label><input id="third" name="Loan_Amount_Term" required="required" type="number">
+            <br><label>Credit_History</label><!--<br><input id="second" name="Dependents" required="required" type="text">-->
+            <input type="radio" id="radio-Credit_History-1" name="Credit_History" value="0"/>
+    		<label for="radio-Credit_History-1">0</label>
+    		<input type="radio" id="radio-Credit_History-2" name="Credit_History" value="1" checked/>
+    		<label for="radio-Credit_History-2">1</label>
+            <!--<br><label>Property_Area</label><input id="third" name="Property_Area" required="required" type="text"> -->
+            <label for="Property_Area">Choose the Property_Area:</label>
+
+            <select name="Property_Area" id="Property_Area">
+              <option value="Rural">Rural</option>
+              <option value="Urban">Urban</option>
+              <option value="Semi_Urban">Semi_Urban</option>
+            </select>
+
+            <br><br><button id="sub" type="submit ">Approve or Not</button>
+            <br>
+
+
+
+
+        </form>
+
+
+
+        <br><br><h3>{{ prediction_text }}<h3>
+    </div>
+
+
+
+
+    <style>
+        body {
+            
+            text-align: center;
+            padding: 0px;
+            background-image: url('Loan.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: cover;
+        }
+        
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #fuel {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #fuel:hover {
+            background-color: coral;
+        }
+        
+        #research {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #research:hover {
+            background-color: coral;
+        }
+        
+        #resea {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: coral;
+        }
+        
+        sub {
+            width: 320px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+   
+</style>
+   
+</body>
+
+</html>
